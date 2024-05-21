@@ -1,7 +1,7 @@
-require('dotenv').config();
+
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 4000;
+const port = 4000;
 
 
 app.get('/', (req, res) => {
@@ -19,3 +19,6 @@ app.get('/signup', (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+
+
+module.export = app
