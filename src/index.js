@@ -1,24 +1,20 @@
-// const express = require('express'); // Imports the Express framework
-// const app = express(); // Creates an Express application instance
+import dotenv from 'dotenv';
+import express from 'express';
+import connectDB from './db/index.js';
 
-// const port = 4000; // Uses the `PORT` environment variable if set, otherwise defaults to 4000
+// Load environment variables from .env file
+dotenv.config({ path: './.env' }); // Ensure the correct path to your .env file
 
-// // Routes
-// app.get('/', (req, res) => {
-//   res.send('Hello World!'); // Sends the "Hello World!" response for the root path (`/`)
-// });
+// Connect to MongoDB
+connectDB();
 
-// var users = [ {
-//   name: "karan"
-// }]
+// Create an Express application
+const app = express();
 
+// Define the port, using an environment variable if available
+const port = process.env.PORT || 5000; // Default to 5000 if PORT is not defined
 
-// // Starts the server
-// app.listen(port, () => {
-//   console.log(`Example app listening on port ${port}`);
-// });
-
-// module.exports = app;
-
-
-// Advance backend set up 
+// Start the server
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
